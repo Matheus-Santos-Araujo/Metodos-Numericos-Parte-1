@@ -1,14 +1,14 @@
 function bisection_method()
-    ap = 1;
+    ap = input("\n Digite o a: \n"); %(1)
     f = @(x) ap*e^x - 4*x^2;
-    eps = 1e-4;
-    a = 0;   
-    b = 3;
+    eps = input("\n Digite o erro: \n"); %(1e-4)
+    a = 0; %Preciso disso
+    b = 3; %Preciso disso
     
     [solution, no_iterations] = bisection(f, a, b, eps);
     if solution <= b   % Solution found
         fprintf('Numero de iteracoes: %d\n', 1+2*no_iterations);
-        fprintf('Solucao: %f\n', solution);
+        fprintf('d = %f\n', solution);
     else
         fprintf('Execucao abortada.\n');
     end
