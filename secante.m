@@ -1,14 +1,14 @@
 function secant_method()
-    ap = 1;
+    ap = input("\n Digite o a: \n"); %(1)
     f = @(x) ap*e^x - 4*x^2;
-    eps = 1e-6;
-    x0 = 3.5;  
+    eps = input("\n Digite o erro: \n"); %(1e-4)
+    x0 = 3.5; %Preciso disso
     x1 = x0 - 1;
     
     [solution,no_iterations] = secant(f, x0, x1, eps);
     if no_iterations > 0   % Solution found
         fprintf('Numero de iteracoes: %d\n', 2 + no_iterations);
-        fprintf('Solucao: %f\n', solution)
+        fprintf('d = %f\n', solution)
     else
         fprintf('Execucao abortada.\n')
     end
