@@ -38,12 +38,14 @@ end
  while (a <= 100 && b<=100)
    if (f(a)*f(b)<0)
     [solution, no_iterations] = bisection(f, a, b, eps);
+    break;
    endif
  a++;   
  b++;
  endwhile
  
  if solution <= b   % Solution found
+        fprintf('(Isolamento) entre %f e %f\n', a, b)
         fprintf('Numero de iteracoes: %d\n', 1+2*no_iterations);
         fprintf('d = %f\n', solution);
     else
@@ -94,6 +96,7 @@ end
     
     [solution,no_iterations] = Newton(f, dfdx, x0, eps);
     if no_iterations > 0   % Solution found
+        fprintf('(Isolamento) x0 =  %f\n', x0)
         fprintf('Numero de iteracoes: %d\n', 1 + 2*no_iterations);
         fprintf('d =  %f\n', solution)
     else
@@ -147,6 +150,7 @@ end
     
     [solution,no_iterations] = secant(f, x0, x1, eps);
     if no_iterations > 0   % Solution found
+        fprintf('(Isolamento) x0 =  %f\n', x0)
         fprintf('Numero de iteracoes: %d\n', 2 + no_iterations);
         fprintf('d = %f\n', solution)
     else
