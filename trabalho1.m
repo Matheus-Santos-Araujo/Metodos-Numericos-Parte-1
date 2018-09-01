@@ -29,7 +29,8 @@ function [result1, result2] = bisection(f, x_L, x_R, eps)
         end
         x_M = (x_L + x_R)/2;
         f_M = f(x_M);
-        iteration_counter = iteration_counter + 2;
+        iteration_counter = iteration_counter + 1;
+        fprintf(' K=%f A=%f F(A)=%f B=%f F(B)=%f  X=%f F(X)=%f  B-A=%f\n', iteration_counter, x_L, f(x_L), x_R, f(x_R), x_M, f(x_M),x_L-x_R);
     end
     result1 = x_M;
     result2 = iteration_counter;
@@ -45,8 +46,9 @@ end
  endwhile
  
  if solution <= b   % Solution found
+        fprintf('\n-------------------RESUMO------------------\n')
         fprintf('(Isolamento) entre %f e %f\n', a, b)
-        fprintf('Numero de iteracoes: %d\n', 1+2*no_iterations);
+        fprintf('Numero de iteracoes: %d\n', no_iterations);
         fprintf('d = %f\n', solution);
     else
         fprintf('Execucao abortada.\n');
@@ -77,6 +79,7 @@ elseif( opcao == 2 )
         end
         f_value = f(x);
         iteration_counter = iteration_counter + 1;
+        fprintf(' K=%f  X=%f F(X)=%f  X1-X0=%f\n', iteration_counter, x, f(x), x-x0);
     end
     % Here, either a solution is found, or too many iterations
     if abs(f_value) > eps
@@ -96,8 +99,9 @@ end
     
     [solution,no_iterations] = Newton(f, dfdx, x0, eps);
     if no_iterations > 0   % Solution found
+        fprintf('\n-------------------RESUMO------------------\n')
         fprintf('(Isolamento) x0 =  %f\n', x0)
-        fprintf('Numero de iteracoes: %d\n', 1 + 2*no_iterations);
+        fprintf('Numero de iteracoes: %d\n', no_iterations);
         fprintf('d =  %f\n', solution)
     else
         fprintf('Execucao abortada.\n')
@@ -138,6 +142,7 @@ function [solution,no_iterations] = secant(f, x0, x1, eps)
         f_x0 = f_x1;
         f_x1 = f(x1);
         iteration_counter = iteration_counter + 1;
+        fprintf(' K=%f  X=%f F(X)=%f  X1-X0=%f\n', iteration_counter, x0, f(x0), x1-x0);
     end
     % Here, either a solution is found, or too many iterations
     if abs(f_x1) > eps
@@ -150,8 +155,9 @@ end
     
     [solution,no_iterations] = secant(f, x0, x1, eps);
     if no_iterations > 0   % Solution found
+        fprintf('\n-------------------RESUMO------------------\n')
         fprintf('(Isolamento) x0 =  %f\n', x0)
-        fprintf('Numero de iteracoes: %d\n', 2 + no_iterations);
+        fprintf('Numero de iteracoes: %d\n', no_iterations);
         fprintf('d = %f\n', solution)
     else
         fprintf('Execucao abortada.\n')
