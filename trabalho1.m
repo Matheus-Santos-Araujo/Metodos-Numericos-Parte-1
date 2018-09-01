@@ -1,12 +1,14 @@
-  opcao = input("\n Digite o numero de acordo com a opcao desejada: \n 1) Bisseção.\n 2) Newton Raphson.\n 3) Secante.\n");
+opcao = input("\n Digite o numero de acordo com a opcao desejada: \n 1) Bisseção.\n 2) Newton Raphson.\n 3) Secante.\n");
    
 if( opcao == 1 )
+    n = input("\n Digite o numero de movimentos: \n"); %(5)
+    for j = 1:n
     ap = input("\n Digite o a: \n"); %(1)
     eps = input("\n Digite a precisao: \n"); %(1e-4)
     f = @(x) ap*e^x - 4*x^2;
-     
     a=-10;
     b=-9;
+    
  
 function [result1, result2] = bisection(f, x_L, x_R, eps)
     if f(x_L)*f(x_R) > 0
@@ -47,9 +49,11 @@ end
     else
         fprintf('Execucao abortada.\n');
     end 
-
+endfor
 %METODO DE NEWTON----------------------------    
 elseif( opcao == 2 )
+    n = input("\n Digite o numero de movimentos: \n"); %(5)
+    for j = 1:n
     ap = input("\n Digite o a: \n"); %(1)
     f = @(x) ap*e^x - 4*x^2;
     dfdx = @(x) e^x-8*x;
@@ -95,9 +99,11 @@ end
     else
         fprintf('Execucao abortada.\n')
     end
-
+endfor
 %METODO DA SECANTE----------------------------  
 elseif( opcao == 3 )
+    n = input("\n Digite o numero de movimentos: \n"); %(5)
+    for j = 1:n
     ap = input("\n Digite o a: \n"); %(1)
     f = @(x) ap*e^x - 4*x^2;
     eps = input("\n Digite a precisao: \n"); %(1e-4)
@@ -146,6 +152,7 @@ end
     else
         fprintf('Execucao abortada.\n')
     end
+ endfor   
 else 
 disp("Opcao invalida\n");
 endif
