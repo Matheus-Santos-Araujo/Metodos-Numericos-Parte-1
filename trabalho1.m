@@ -5,8 +5,8 @@ if( opcao == 1 )
     eps = input("\n Digite o erro: \n"); %(1e-4)
     f = @(x) ap*e^x - 4*x^2;
      
-    a=-0.0001;
-    b=-1;
+    a=-10;
+    b=-9;
  
 function [result1, result2] = bisection(f, x_L, x_R, eps)
     if f(x_L)*f(x_R) > 0
@@ -54,8 +54,8 @@ elseif( opcao == 2 )
     f = @(x) ap*e^x - 4*x^2;
     dfdx = @(x) e^x-8*x;
     eps = input("\n Digite o erro: \n"); %(1e-4)
-      a=-0.0001;
-      b=-1;
+    a=-10;
+    b=-9;
  
  function [solution, no_iterations] = Newton(f, dfdx, x0, eps)
     
@@ -101,8 +101,8 @@ elseif( opcao == 3 )
     ap = input("\n Digite o a: \n"); %(1)
     f = @(x) ap*e^x - 4*x^2;
     eps = input("\n Digite o erro: \n"); %(1e-4)
-     a=-0.0001;
-     b=-1;
+     a=-10;
+    b=-9;
      
  while (a <= 100 && b<=100)
    if (f(a)*f(b)<0)
