@@ -2,7 +2,7 @@
    
 if( opcao == 1 )
     ap = input("\n Digite o a: \n"); %(1)
-    eps = input("\n Digite o erro: \n"); %(1e-4)
+    eps = input("\n Digite a precisao: \n"); %(1e-4)
     f = @(x) ap*e^x - 4*x^2;
      
     a=-10;
@@ -53,7 +53,7 @@ elseif( opcao == 2 )
     ap = input("\n Digite o a: \n"); %(1)
     f = @(x) ap*e^x - 4*x^2;
     dfdx = @(x) e^x-8*x;
-    eps = input("\n Digite o erro: \n"); %(1e-4)
+    eps = input("\n Digite a precisao: \n"); %(1e-4)
     a=-10;
     b=-9;
  
@@ -100,7 +100,7 @@ end
 elseif( opcao == 3 )
     ap = input("\n Digite o a: \n"); %(1)
     f = @(x) ap*e^x - 4*x^2;
-    eps = input("\n Digite o erro: \n"); %(1e-4)
+    eps = input("\n Digite a precisao: \n"); %(1e-4)
      a=-10;
     b=-9;
      
