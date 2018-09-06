@@ -30,7 +30,7 @@ function [result1, result2] = bisection(f, x_L, x_R, eps)
         x_M = (x_L + x_R)/2;
         f_M = f(x_M);
         iteration_counter = iteration_counter + 1;
-        fprintf(' K=%d A=%f F(A)=%f B=%f F(B)=%f  X=%f F(X)=%f  B-A=%f ER=%f \n', iteration_counter, x_L, f(x_L), x_R, f(x_R), x_M, f(x_M),x_L-x_R,x_L-x_R/x_L);
+        fprintf(' K=%d A=%f F(A)=%f B=%f F(B)=%f  X=%f F(X)=%f  B-A=%f ER=%f \n', iteration_counter, x_L, f(x_L), x_R, f(x_R), x_M, f(x_M),x_L-x_R,(x_L-x_R)/x_L);
     end
     result1 = x_M;
     result2 = iteration_counter;
@@ -50,6 +50,9 @@ end
         fprintf('(Isolamento) entre %f e %f\n', a, b)
         fprintf('Numero de iteracoes: %d\n', no_iterations);
         fprintf('d = %f\n', solution);
+        if (solution != 0)
+        fprintf('Para A = %d existe deslocamento\n', ap)
+        endif
     else
         fprintf('Execucao abortada.\n');
     end 
@@ -79,7 +82,7 @@ elseif( opcao == 2 )
         end
         f_value = f(x);
         iteration_counter = iteration_counter + 1;
-        fprintf(' K=%d  X=%f F(X)=%f  X1-X0=%f ER=%f\n', iteration_counter, x, f(x), x-x0,x-x0/x);
+        fprintf(' K=%d  X=%f F(X)=%f  Xn-Xn-1=%f ER=%f\n', iteration_counter, x, f(x), x-x0,(x-x0)/x);
     end
     if abs(f_value) > eps
         iteration_counter = -1;
@@ -90,7 +93,7 @@ end
   
  while (a <= 100 && b<=100)
    if (f(a)*f(b)<0)
-     x0 = b; %Preciso disso
+     x0 = (a+b)/2; %Preciso disso
    endif
  a++;   
  b++;
@@ -102,6 +105,9 @@ end
         fprintf('(Isolamento) x0 =  %f\n', x0)
         fprintf('Numero de iteracoes: %d\n', no_iterations);
         fprintf('d =  %f\n', solution)
+         if (solution != 0)
+        fprintf('Para A = %d existe deslocamento\n', ap)
+        endif
     else
         fprintf('Execucao abortada.\n')
     end
@@ -118,7 +124,7 @@ elseif( opcao == 3 )
      
  while (a <= 100 && b<=100)
    if (f(a)*f(b)<0)
-     x0 = b; %Preciso disso
+     x0 = (a+b)/2; %Preciso disso
    endif
  a++;   
  b++;
@@ -141,7 +147,7 @@ function [solution,no_iterations] = secant(f, x0, x1, eps)
         f_x0 = f_x1;
         f_x1 = f(x1);
         iteration_counter = iteration_counter + 1;
-        fprintf(' K=%d  X=%f F(X)=%f  X1-X0=%f ER=%f\n', iteration_counter, x0, f(x0), x1-x0, x1-x0/x1);
+        fprintf(' K=%d  X=%f F(X)=%f  Xn-Xn-1=%f ER=%f\n', iteration_counter, x0, f(x0), x1-x0, (x1-x0)/x1);
     end
     if abs(f_x1) > eps
         iteration_counter = -1;
@@ -157,6 +163,9 @@ end
         fprintf('(Isolamento) x0 =  %f\n', x0)
         fprintf('Numero de iteracoes: %d\n', no_iterations);
         fprintf('d = %f\n', solution)
+         if (solution != 0)
+        fprintf('Para A = %d existe deslocamento\n', ap)
+        endif
     else
         fprintf('Execucao abortada.\n')
     end
