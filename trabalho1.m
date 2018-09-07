@@ -65,11 +65,20 @@ elseif( opcao == 2 )
     f = @(x) ap*e^x - 4*x^2;
     dfdx = @(x) e^x-8*x;
     eps = input("\n Digite a precisao: \n"); %(1e-4)
-    a=-10;
-    b=-9;
+    a=-4;
+    b=-3;
+    
+     while (a <= 100 && b<=100)
+   if (f(a)*f(b)<0)
+     x = (a+b)/2; %Preciso disso
+   endif
+ a++;   
+ b++;
+ endwhile
+  
  
  function [solution, no_iterations] = Newton(f, dfdx, x0, eps)
-    
+    xantigo = x0;     
     x = x0;
     f_value = f(x);
     iteration_counter = 0;
@@ -82,7 +91,8 @@ elseif( opcao == 2 )
         end
         f_value = f(x);
         iteration_counter = iteration_counter + 1;
-        fprintf(' K=%d  X=%f F(X)=%f  Xn-Xn-1=%f ER=%f\n', iteration_counter, x, f(x), x-x0,(x-x0)/x);
+        fprintf(' K=%d  X=%f F(X)=%f  Xn-Xn-1=%f ER=%f\n', iteration_counter, x0, f(x), x-x0,(x-x0)/x);
+        x0 = x;
     end
     if abs(f_value) > eps
         iteration_counter = -1;
@@ -90,15 +100,7 @@ elseif( opcao == 2 )
     solution = x;
     no_iterations = iteration_counter;
 end
-  
- while (a <= 100 && b<=100)
-   if (f(a)*f(b)<0)
-     x0 = (a+b)/2; %Preciso disso
-   endif
- a++;   
- b++;
- endwhile
-    
+    x0 = x-1;
     [solution,no_iterations] = Newton(f, dfdx, x0, eps);
     if no_iterations > 0   
         fprintf('\n-------------------RESUMO------------------\n')
