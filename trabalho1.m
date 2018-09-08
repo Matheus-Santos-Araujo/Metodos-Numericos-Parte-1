@@ -107,11 +107,11 @@ elseif( opcao == 2 )
     while abs(f_value) > eps && iteration_counter < 100
         try
             % calcula pela formula de newton raphson
-            % verifica se a derivada é menor que o erro, se for usa-se FL = f'(x0) normal
+            % verifica se a derivada é menor que o erro, se for usa-se FL = f'(x) normal
             if dfdx(x) > eps 
             x = x - (f_value)/dfdx(x);
             else 
-            % senao for, usa-se FL = f'(xw)
+            % senao for, usa-se FL = f'(xw) que e a ultima aproximacao obtida
             x = x - (f_value)/dfdx(x0);
             endif
         catch
