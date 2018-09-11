@@ -4,6 +4,10 @@ if( opcao == 1 )
     n = input("\n Digite o numero de movimentos: \n"); % entra com o numero de movimentos
     for j = 1:n % executa para cada movimento
     ap = input("\n Digite o a: \n"); % recebe o 'a' da funcao
+    if (ap < 0)
+      fprintf("Nao ha raizes para 'a' negativo. Sem deslocamento.\n");
+      break;
+    endif
     eps = input("\n Digite a precisao: \n"); % recebe a precisao
     f = @(x) ap*e^x - 4*x^2; % funcao
     a=-10; % intervalo inicial a esquerda
@@ -76,6 +80,10 @@ elseif( opcao == 2 )
     n = input("\n Digite o numero de movimentos: \n"); % entra com o numero de movimentos
     for j = 1:n % executa para cada movimento
     ap = input("\n Digite o a: \n"); % recebe o 'a' da funcao
+    if (ap<0)
+      fprintf("Nao ha raizes para 'a' negativo. Sem deslocamento.\n");
+      break;
+    endif
     f = @(x) ap*e^x - 4*x^2; % funcao
     dfdx = @(x) e^x-8*x; % derivada da funcao
     eps = input("\n Digite a precisao: \n"); % recebe a precisao
@@ -158,6 +166,10 @@ elseif( opcao == 3 )
     n = input("\n Digite o numero de movimentos: \n"); % entra com o numero de movimentos
     for j = 1:n % executa para cada movimento
     ap = input("\n Digite o a: \n"); % recebe o 'a' da funcao
+    if (ap<0)
+    fprintf("Nao ha raizes para 'a' negativo. Sem deslocamento.\n");
+    break;
+    endif
     f = @(x) ap*e^x - 4*x^2; % funcao
     eps = input("\n Digite a precisao: \n"); % recebe precisao
      a=-10; % intervalo inicial a esquerda
