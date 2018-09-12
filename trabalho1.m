@@ -132,7 +132,7 @@ elseif( opcao == 2 )
         % incrementa o contador
         iteration_counter = iteration_counter + 1;
         % printa a iteracao
-        fprintf(' K=%d  X=%f F(X)=%f  Xn-Xn-1=%f ER=%f\n', iteration_counter, x0, f(x), x-x0,(x-x0)/x);
+        fprintf(' K=%d  X=%f F(X)=%f  Xn-Xn-1=%f ER=%f\n', iteration_counter, x0, f(x), abs(x-x0),abs((x-x0)/x));
         % atualiza o x0
         x0 = x;
     end
@@ -217,7 +217,7 @@ function [solution,no_iterations] = secant(f, x0, x1, eps)
         % incrementa o contador
         iteration_counter = iteration_counter + 1;
         % printa a iteracao
-        fprintf(' K=%d  X=%f F(X)=%f  Xn-Xn-1=%f ER=%f\n', iteration_counter, x0, f(x0), x1-x0, (x1-x0)/x1);
+        fprintf(' K=%d  X=%f F(X)=%f  Xn-Xn-1=%f ER=%f\n', iteration_counter, x0, f(x0), abs(x1-x0), abs((x1-x0)/x1));
     end
     % verifica se atingiu a precisao
     if abs(f_x1) > eps
