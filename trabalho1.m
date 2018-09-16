@@ -1,3 +1,7 @@
+% Trabalho 1 - tema 2 - Geracao Coca-Cola
+% Matheus Santos Araújo, Xenia Beatriz, Edson Rodrigo e Marcos Aurelio
+% Github do projeto: https://github.com/Matheus-Santos-Araujo/metodosnumericos
+
 opcao = input("\n Digite o numero de acordo com a opcao desejada: \n 1) Bisseção.\n 2) Newton Raphson.\n 3) Secante.\n");
 %METODO DA BISSECAO---------------------   
 if( opcao == 1 )
